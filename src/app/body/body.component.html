@@ -1,0 +1,53 @@
+<body>
+  <!-- 資料篩選 -->
+  <div [formGroup] = dataForm #tvalue class="background" style="background-color:#9C9EFE">
+    <mat-form-field appearance="fill">
+      <mat-label>行政區選擇</mat-label>
+      <mat-select formControlName = "sarea" (selectionChange)="changeSelect($event)">
+        <mat-option *ngFor="let item of items" [value]=item.label>{{item.label}} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>搜尋路段</mat-label>
+      <input #testvalue type="search" matInput placeholder="Ex. 忠孝東路" (keyup.enter)="roadSearch(testvalue.value)">
+    </mat-form-field>
+
+  <!-- 表格 -->
+    <table mat-table  [dataSource]="selectvalue" class="mat-elevation-z8" >
+      <ng-container matColumnDef="sna" >
+        <th mat-header-cell *matHeaderCellDef > 站點名稱 </th>
+        <td mat-cell *matCellDef="let element"> {{element.sna}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sarea">
+        <th mat-header-cell *matHeaderCellDef> 地區 </th>
+        <td mat-cell *matCellDef="let element"> {{element.sarea}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ar">
+        <th mat-header-cell *matHeaderCellDef> 地址 </th>
+        <td mat-cell *matCellDef="let element"> {{element.ar}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sbi">
+        <th mat-header-cell *matHeaderCellDef> 目前可用 </th>
+        <td mat-cell *matCellDef="let element"> {{element.sbi}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bemp">
+        <th mat-header-cell *matHeaderCellDef> 可停放 </th>
+        <td mat-cell *matCellDef="let element"> {{element.bemp}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+  </div>
+</body>
+
+
+
+
+
+
+

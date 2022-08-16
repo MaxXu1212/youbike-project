@@ -1,0 +1,31 @@
+
+.container {
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+    content: "";
+    display: block;
+    width: 100%;
+    background-color: #9C9EFE;
+    height: 100vh;
+}
+
+.signup-card {
+  max-width: 350px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.title {
+  text-align: center;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+}

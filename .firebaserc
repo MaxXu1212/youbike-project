@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "account-and-password"
+  },
+  "targets": {
+    "account-and-password": {
+      "hosting": {
+        "youbikepractice": [
+          "account-and-password"
+        ]
+      }
+    }
+  }
+}
