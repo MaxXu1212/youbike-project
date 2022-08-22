@@ -2,28 +2,28 @@
   <span><a [routerLink]="['/body']">Youbike</a></span>
   <span class="example-spacer"></span>
   <mat-menu #messageMenu="matMenu">
-    <button mat-menu-item  (click)="Passchange()"  value="1.0">
+    <button mat-menu-item  (click)="Passchange()"  value="1.0" class="Ubike1.0">
       <mat-icon color="primary">directions_bike</mat-icon>Ubike1.0
     </button>
 
-    <button mat-menu-item  (click)="Default()" value="2.0">
+    <button mat-menu-item  (click)="Default()" value="2.0" class="Ubike2.0">
       <mat-icon color="warn">directions_bike</mat-icon>
       Ubike2.0
     </button>
 
-    <button mat-menu-item [routerLink]="['/signin']">
+    <button mat-menu-item [routerLink]="['/signin']" class="signin">
       <mat-icon color="primary">person</mat-icon>
       Sign in
     </button>
 
-    <button mat-menu-item [routerLink]="['/signin']">
+    <button mat-menu-item [routerLink]="['/signin']" clas="signout">
       <mat-icon color="warn">logout</mat-icon>
       Sign out
     </button>
 
     <button mat-menu-item>
       <mat-icon color="primary">home</mat-icon>
-      <a href="https://www.youbike.com.tw/region/main/">Ubike Home Page</a>
+      <a href="https://www.youbike.com.tw/region/main/" class="Ubikehomepage">Ubike Home Page</a>
     </button>
   </mat-menu>
   <button mat-icon-button [matMenuTriggerFor]="messageMenu" #menuTrigger="matMenuTrigger">

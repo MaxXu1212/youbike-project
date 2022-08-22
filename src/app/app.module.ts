@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { DataService } from './body/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select';
@@ -24,8 +24,14 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { BodyModule } from './body/body.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 
@@ -36,7 +42,6 @@ import { BodyModule } from './body/body.module';
     BodyComponent,
     SigninComponent,
     SignupComponent,
-
 
   ],
   imports: [
@@ -57,11 +62,15 @@ import { BodyModule } from './body/body.module';
     MatCardModule,
     MatCheckboxModule,
     BodyModule,
-    
+    TranslateModule.forRoot({
+      loader:{
+        provide: TranslateLoader,
+        useFactory:(createTranslateLoader),
+        deps:[HttpClient]
+      }
+    }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
-
-
 
 
   ],

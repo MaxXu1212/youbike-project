@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,9 @@ export class AppComponent {
   title = 'youbikepractice';
   change:boolean
 
-  constructor(public route:ActivatedRoute){
-    
+  constructor(public route:ActivatedRoute, public translateService: TranslateService){
+
+
   }
 
 }
