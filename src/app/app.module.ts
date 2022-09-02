@@ -27,6 +27,7 @@ import { BodyModule } from './body/body.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { Observable } from 'rxjs';
 
 
 export function createTranslateLoader(http: HttpClient) {

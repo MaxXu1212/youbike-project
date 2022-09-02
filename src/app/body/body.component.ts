@@ -4,6 +4,7 @@ import { Component, OnInit , Input, OnChanges, SimpleChanges } from '@angular/co
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DataService } from './data.service';
 import { getSyntheticLeadingComments } from 'typescript';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-body',
@@ -61,6 +62,7 @@ export class BodyComponent implements OnInit, OnChanges {
         return svalue
       }
     })
+  
 
   }
 
@@ -81,14 +83,15 @@ export class BodyComponent implements OnInit, OnChanges {
       Object.keys(result.retVal).forEach((k:any)=>{
        this.data.push(JSON.parse(JSON.stringify(result.retVal[`${k}`])))
       })
+
   })
+
 
 }
  }
 
- add(){
-  
- }
+
+
 
 
 
