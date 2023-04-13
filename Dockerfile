@@ -1,7 +1,19 @@
 FROM node:current-alpine
 
-RUN chown -R node:node /usr/local/lib/node_modules \
- && chown -R node:node /usr/local/bin
-USER node
-RUN npm install -g @angular/cli
+WORKDIR /usr/app
 
+COPY ./package.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+COPY src src
+
+RUN npm run build --output-path=./dist --configuration
+
+FROM nginx:alpine
+
+COPY --from=builder /usr/app/dist /usr/share/nginx/html
+
+COPY ./nginx-custom.conf /etc/nginx/con.f.d/default.conf
