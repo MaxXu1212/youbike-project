@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http'
 })
 export class DataService {
 
+  url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
+
 
 
   constructor(public http:HttpClient) { }

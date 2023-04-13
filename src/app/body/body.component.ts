@@ -62,7 +62,7 @@ export class BodyComponent implements OnInit, OnChanges {
         return svalue
       }
     })
-  
+
 
   }
 
@@ -75,6 +75,7 @@ export class BodyComponent implements OnInit, OnChanges {
   if(this.change === 'true'){
     this.datasvc.getdata().subscribe((result:any)=>{
       this.data = result
+      console.log(this.data)
     })
   }
   else{
