@@ -16,4 +16,4 @@ FROM nginx:alpine
 
 COPY --from=builder /usr/app/dist /usr/share/nginx/html
 
-COPY ./nginx-custom.conf /etc/nginx/con.f.d/default.conf
+COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
