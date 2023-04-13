@@ -1,19 +1,14 @@
-FROM node:alpine as builder
+FROM node:alpine as build
 
-WORKDIR /usr/app
+WORKDIR /usr/src/app
 
-COPY ./package.json ./
+COPY package.json package-lock.json ./
 
 RUN npm install
 
-COPY ./ ./
+COPY . .
+RUN npm run build
 
-COPY src src
-
-RUN npm run build --output-path=./dist --configuration
-
-FROM nginx:alpine
-
-COPY --from=builder /usr/app/dist /usr/share/nginx/html
-
-COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
+FROM nginx:1.17.1-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
