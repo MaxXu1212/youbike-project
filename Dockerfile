@@ -2,7 +2,7 @@ FROM node:alpine as build
 
 WORKDIR /usr/src/app
 
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json angular.json ./
 
 RUN npm install
 
